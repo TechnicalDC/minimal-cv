@@ -11,7 +11,8 @@
 \RequirePackage[margin=2.5cm]{geometry}
 \RequirePackage{array}
 
-\setmainfont{Lato}
+\setmainfont{Montserrat}
+
 \setlength{\parindent}{0pt}
 
 % Custom colors
@@ -29,28 +30,16 @@
 % Custom command
 \newcolumntype{L}{>{\raggedleft}p{0.14\textwidth}}
 \newcolumntype{R}{p{0.8\textwidth}}
+
+\newcolumntype{A}{>{\raggedright}p{0.4\textwidth}}
+\newcolumntype{B}{p{0.5\textwidth}}
 \newcommand{\VRule}{\color{Ivory}\vrule width 0.5pt}
 
-\newcommand{\MakeHeader}[6]{
-	{\Huge \bfseries \color{MidnightBlue} #1}
-	{\Huge \bfseries \color{MidnightBlue} #2}
-	\begin{tabular}{l r}
-		{
-			{\textcolor{MidnightBlue}{\faHome} #3}
-			&
-			\begin{flushright}
-				\textcolor{MidnightBlue}\textbf{Email:} \hspace{5pt}#4 \\
-				\textcolor{MidnightBlue}\textbf{Phone:} \hspace{10pt}#5 \\
-				\textcolor{MidnightBlue}\textbf{Linked:} \hspace{10pt}#6 \\
-			\end{flushright}
-		}
-	\end{tabular}
-}
-
-\newcommand{\CvWorkEntry}[3]{
+\newcommand{\CvWorkEntry}[4]{
 	\begin{tabular}{L!{\VRule}R}
 		{\bf#1}&{\bf #2.}\\
 		&#3\\
+		&#4\\
 	\end{tabular}
 	\vspace{1em}
 }
@@ -59,6 +48,39 @@
 	\begin{tabular}{L!{\VRule}R}
 		{\bf#1}&{\bf #2.}\\
 		&#3\\
+	\end{tabular}
+	\vspace{1em}
+}
+
+\newcommand{\CvEntry}[2]{
+	\begin{tabular}{L!{\VRule}R}
+		{\bf#1}&#2.\\
+	\end{tabular}
+	\vspace{1em}
+}
+
+\newcommand{\CvCert}[3]{
+	\begin{tabular}{L!{\VRule}R}
+		{\bf#1}&{\bf#2.}\\
+		&#3\\
+	\end{tabular}
+	\vspace{1em}
+}
+
+\newcommand{\CvHeader}[5]{
+	\begin{tabular}{A B}
+		{
+			\colorbox{Charcoal}{ \textcolor{white}{\MakeUppercase{\Huge \textbf{#1}}}}\\% Section title
+			\colorbox{Charcoal}{ \textcolor{white}{\MakeUppercase{\Huge \textbf{#2}}}}
+		}
+		&
+		{
+			\begin{tabular}{lcr}
+				\textbf{Email:}& &#3.
+				\textbf{Phone:}& &#4.
+				\textbf{Linkedin:}& &#5.
+			\end{tabular}
+		}
 	\end{tabular}
 	\vspace{1em}
 }
