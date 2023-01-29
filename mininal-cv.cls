@@ -10,13 +10,21 @@
 \RequirePackage{multicol}
 \RequirePackage[margin=2.5cm]{geometry}
 \RequirePackage{array}
+\RequirePackage{hyperref}
 
 \setmainfont{Montserrat}
 
 \setlength{\parindent}{0pt}
 
+\urlstyle{same}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=black,
+	urlcolor=black,
+ }
+
 % Custom colors
-\definecolor{lightgray}{gray}{0.8}
 \definecolor{Charcoal}{HTML}{3d3d3d}
 \definecolor{Ivory}{HTML}{ece9e1}
 
@@ -38,7 +46,7 @@
 \newcommand{\CvWorkEntry}[4]{
 	\begin{tabular}{L!{\VRule}R}
 		{\bf#1}&{\bf #2.}\\
-		&#3\\
+		&\textit{#3}\\
 		&#4\\
 	\end{tabular}
 	\vspace{1em}
@@ -47,7 +55,7 @@
 \newcommand{\CvEdEntry}[3]{
 	\begin{tabular}{L!{\VRule}R}
 		{\bf#1}&{\bf #2.}\\
-		&#3\\
+		&\textit{#3}\\
 	\end{tabular}
 	\vspace{1em}
 }
@@ -62,25 +70,26 @@
 \newcommand{\CvCert}[3]{
 	\begin{tabular}{L!{\VRule}R}
 		{\bf#1}&{\bf#2.}\\
-		&#3\\
+		&\textit{#3}\\
 	\end{tabular}
 	\vspace{1em}
 }
 
 \newcommand{\CvHeader}[5]{
-	\begin{tabular}{A B}
+	\begin{tabular}[t]{A B}
 		{
-			\colorbox{Charcoal}{ \textcolor{white}{\MakeUppercase{\Huge \textbf{#1}}}}\\% Section title
-			\colorbox{Charcoal}{ \textcolor{white}{\MakeUppercase{\Huge \textbf{#2}}}}
+			\colorbox{Charcoal}{\textcolor{white}{\MakeUppercase{\Huge \textbf{#1}}}}\\% Section title
+			\colorbox{Charcoal}{\textcolor{white}{\MakeUppercase{\Huge \textbf{#2}}}}
 		}
 		&
-		{
-			\begin{tabular}{lcr}
-				\textbf{Email:}& &#3.
-				\textbf{Phone:}& &#4.
-				\textbf{Linkedin:}& &#5.
+		\begin{minipage}[t]{0.3\textwidth}
+			\begin{tabular}{l l}
+			\textbf{Email:}&#3\\
+			\textbf{Phone:}&#4\\
+				\textbf{Linkedin:}&\href{https://www.linkedin.com/in/#5}{#5}
+			% \textbf{Linkedin:} \url{#5}.
 			\end{tabular}
-		}
+		\end{minipage}
 	\end{tabular}
 	\vspace{1em}
 }
