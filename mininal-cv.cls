@@ -42,6 +42,7 @@
 \newcolumntype{A}{>{\raggedright}p{0.4\textwidth}}
 \newcolumntype{B}{p{0.5\textwidth}}
 \newcommand{\VRule}{\color{Ivory}\vrule width 0.5pt}
+\newcommand{\HRule}{\color{Ivory}\hrule width \textwidth \color{Black}}
 
 \newcommand{\CvWorkEntry}[4]{
 	\begin{tabular}{L!{\VRule}R}
